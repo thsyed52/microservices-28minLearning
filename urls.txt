@@ -1,0 +1,51 @@
+
+Fruit Month Price MicroService
+http://localhost:8000/fruit-month-price/fruit/{fruit}/month/{month}
+
+Fruit Total Price MicroService
+http://localhost:8100/fruit-total-price/fruit/{fruit}/month/{month}/quantity/{qty}
+
+http://localhost:8000/fruit-month-price/fruit/Lime/month/Sep
+
+http://localhost:8761/eureka
+
+
+Initial
+
+- http://localhost:8765/CURRENCY-EXCHANGE/currency-exchange/from/USD/to/INR
+
+- http://localhost:8765/CURRENCY-CONVERSION/currency-conversion/from/USD/to/INR/quantity/10
+
+- http://localhost:8765/CURRENCY-CONVERSION/currency-conversion-feign/from/USD/to/INR/quantity/10
+
+Lower Case
+
+- http://localhost:8765/currency-exchange/currency-exchange/from/USD/to/INR
+
+- http://localhost:8765/currency-conversion/currency-conversion/from/USD/to/INR/quantity/10
+
+- http://localhost:8765/currency-conversion/currency-conversion-feign/from/USD/to/INR/quantity/10
+
+Custom Routes
+
+- http://localhost:8765/currency-exchange/from/USD/to/INR
+
+- http://localhost:8765/currency-conversion/from/USD/to/INR/quantity/10
+
+- http://localhost:8765/currency-conversion-feign/from/USD/to/INR/quantity/10
+
+- http://localhost:8765/currency-conversion-new/from/USD/to/INR/quantity/10
+
+
+Fruit Total Price MicroService
+http://localhost:8100/fruit-total-price/fruit/{fruit}/month/{month}/quantity/{qty}
+
+http://localhost:8100/fruit-total-price/fruit/Yuzu/month/Oct/quantity/10
+http://localhost:8100/fruit-total-price/fruit/Mango/month/Oct/quantity/5
+
+
+api gateway
+
+http://localhost:8765/fruit-prices/fruit-month-price/fruit/Mango/month/Sep
+
+http://localhost:8765/fruit-totalprice-service/fruit-total-price/fruit/Mango/month/Oct/quantity/5
