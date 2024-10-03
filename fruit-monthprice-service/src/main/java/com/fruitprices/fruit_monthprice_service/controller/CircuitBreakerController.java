@@ -14,17 +14,21 @@ public class CircuitBreakerController {
     private Logger logger = LoggerFactory.getLogger(CircuitBreakerController.class);
 
     @GetMapping("/sample-api")
-    public String SampleApi(){
+    public String SampleApi() {
         return "Sample API";
     }
 
     @GetMapping("/dummy-url")
-    @Retry(name = "default")
+    @Retry(name = "default", fallbackMethod = "hardcodedResponse")
     // purposely failing the rest api call the using @Retry
-    public String SampleApi2(){
+    public String SampleApi2() {
         logger.info("dummy url call received");
-        ResponseEntity<String>  forEntity =  new RestTemplate().getForEntity("http://localhost:8080/circuit-breaker", String.class);
-
+        ResponseEntity<String> forEntity = new RestTemplate().getForEntity("http://localhost:8080/circuit-breaker", String.class);
         return forEntity.getBody();
     }
+
+    public String hardcodedResponse(Exception exception) {
+        return "fallback response";
+    }
+
 }
