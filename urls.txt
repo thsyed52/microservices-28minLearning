@@ -1,4 +1,8 @@
 
+eureka url
+
+localhost:8761/
+
 Fruit Month Price MicroService
 http://localhost:8000/fruit-month-price/fruit/{fruit}/month/{month}
 
@@ -44,16 +48,21 @@ http://localhost:8100/fruit-total-price/fruit/Yuzu/month/Oct/quantity/10
 http://localhost:8100/fruit-total-price/fruit/Mango/month/Oct/quantity/5
 
 
-api gateway
+through api gateway ( for explanation check ApiGatewayConfiguration.java file )
 
-http://localhost:8765/fruit-prices/fruit-month-price/fruit/Mango/month/Sep
+http://localhost:8765/fruit-month-price/fruit/Mango/month/Sep
 
-http://localhost:8765/fruit-totalprice-service/fruit-total-price/fruit/Mango/month/Oct/quantity/5
+http://localhost:8765/fruit-total-price/fruit/Mango/month/Oct/quantity/5
 
 
 open zipKin docker command
 docker run -p 9411:9411 openzipkin/zipkin:2.23
 
+docker run -d -p 9411:9411 openzipkin/zipkin:2.23  -d for detached mode
+
 
 git commands
 git status = shows files in which changes have been made
+git add . = to add all changes to local repository
+git commit -m "message" = commit to local repository
+git push -u origin <branch name> = push changes to server

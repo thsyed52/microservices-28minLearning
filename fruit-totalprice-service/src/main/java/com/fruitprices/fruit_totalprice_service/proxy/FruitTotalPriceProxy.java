@@ -11,5 +11,5 @@ import org.springframework.web.bind.annotation.PathVariable;
 /* feign client talking to eureka to get any running service */
 public interface FruitTotalPriceProxy {
     @GetMapping("/fruit-month-price/fruit/{fruit}/month/{month}")
-    public FruitTotalPrice retrieveData(@PathVariable String fruit, @PathVariable String month);
+    public FruitTotalPrice getForEntity(@PathVariable String fruit, @PathVariable String month);
 }
