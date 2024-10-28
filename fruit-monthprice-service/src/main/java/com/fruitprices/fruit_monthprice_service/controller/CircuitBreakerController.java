@@ -1,5 +1,7 @@
 package com.fruitprices.fruit_monthprice_service.controller;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import io.github.resilience4j.retry.annotation.Retry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,8 +21,11 @@ public class CircuitBreakerController {
     }
 
     @GetMapping("/dummy-url")
-    @Retry(name = "default", fallbackMethod = "hardcodedResponse")
+//    @Retry(name = "default", fallbackMethod = "hardcodedResponse")
+    @CircuitBreaker(name = "default" , fallbackMethod = "hardcodedResoponse")
     // purposely failing the rest api call the using @Retry
+    @RateLimiter(name = "default")
+    // rate limiting is i want to allow only 10000 requests in 10 seconds
     public String SampleApi2() {
         logger.info("dummy url call received");
         ResponseEntity<String> forEntity = new RestTemplate().getForEntity("http://localhost:8080/circuit-breaker", String.class);

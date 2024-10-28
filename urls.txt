@@ -49,3 +49,11 @@ api gateway
 http://localhost:8765/fruit-prices/fruit-month-price/fruit/Mango/month/Sep
 
 http://localhost:8765/fruit-totalprice-service/fruit-total-price/fruit/Mango/month/Oct/quantity/5
+
+
+open zipKin docker command
+docker run -p 9411:9411 openzipkin/zipkin:2.23
+
+
+git commands
+git status = shows files in which changes have been made
